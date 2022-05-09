@@ -5,7 +5,8 @@
 		"typecheck": "pnpm recursive run typecheck",
 		"lint": "pnpm recursive run lint",
 		"prettier": "pnpm recursive run prettier",
-		"dev:server": "pnpm --filter @betterchat/server dev"
+		"dev:server": "pnpm --filter @betterchat/server dev",
+		"dev:website": "pnpm --filter @betterchat/website dev"
 	},
 	"devDependencies": {
 		"@leonzalion/configs": "^1.4.12",
