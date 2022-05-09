@@ -3,8 +3,14 @@ import { getProjectDir, prePush } from 'lion-system';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
-export async function pmPrePush() {
+import type { PseudoMonorepoHookOptions } from '../types/options.js';
+
+export async function pmPrePush(options: PseudoMonorepoHookOptions) {
 	prePush();
+
+	if (!options.fromRoot) {
+		return;
+	}
 
 	// Execute `git push` in all package directories
 

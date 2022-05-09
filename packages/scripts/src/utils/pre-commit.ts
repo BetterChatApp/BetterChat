@@ -3,8 +3,14 @@ import { getProjectDir, preCommit } from 'lion-system';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
-export async function pmPreCommit() {
+import type { PseudoMonorepoHookOptions } from '../types/options.js';
+
+export async function pmPreCommit(options: PseudoMonorepoHookOptions) {
 	preCommit();
+
+	if (!options.fromRoot) {
+		return;
+	}
 
 	// Add the changed files in all packages: https://stackoverflow.com/a/33620540
 
