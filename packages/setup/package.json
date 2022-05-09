@@ -1,0 +1,5 @@
+{
+	"name": "@betterchat/setup",
+	"type": "module",
+	"description": "Sets up the BetterChat pseudo-monorepo."
+}
