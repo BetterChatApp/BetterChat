@@ -21,7 +21,7 @@ await Promise.allSettled(
 		const packageDir = path.join(packagesDir, packageName);
 		await execa(
 			'git',
-			['commit', '-m', fs.readFileSync(commitMessage, 'utf8')],
+			['commit', '-m', fs.readFileSync(commitMessage, 'utf8'), '--no-verify'],
 			{ cwd: packageDir, stdio: 'inherit' }
 		);
 	})
