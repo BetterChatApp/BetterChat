@@ -19,9 +19,13 @@ const commitMessage = process.argv.at(-1)!;
 await Promise.allSettled(
 	packageNames.map(async (packageName) => {
 		const packageDir = path.join(packagesDir, packageName);
+		if (!fs.existsSync(path.join(packageDir, '.git'))) {
+			return;
+		}
+
 		await execa(
 			'git',
-			['commit', '-m', fs.readFileSync(commitMessage, 'utf8'), '--no-verify'],
+			['commit', '-m', fs.readFileSync(commitMessage, 'utf8')],
 			{ cwd: packageDir, stdio: 'inherit' }
 		);
 	})

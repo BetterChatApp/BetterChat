@@ -15,6 +15,11 @@ const packageNames = fs.readdirSync(packagesDir);
 await Promise.allSettled(
 	packageNames.map(async (packageName) => {
 		const packageDir = path.join(packagesDir, packageName);
+
+		if (!fs.existsSync(path.join(packageDir, '.git'))) {
+			return;
+		}
+
 		await execa('git', ['add', '.'], { cwd: packageDir, stdio: 'inherit' });
 	})
 );
