@@ -1,10 +1,11 @@
 {
 	"name": "@betterchat/monorepo",
 	"scripts": {
-		"pnpm:devPreinstall": "node ./packages/setup/setup.js"
+		"pnpm:devPreinstall": "node ./packages/setup/setup.js",
+		"dev:server": "pnpm --filter @betterchat/server dev"
 	},
 	"devDependencies": {
-		"@leonzalion/configs": "^1.4.11",
+		"@leonzalion/configs": "^1.4.12",
 		"typescript": "^4.6.4"
 	}
 }
