@@ -2,8 +2,11 @@ import { execa } from 'execa';
 import { getProjectDir, preCommit } from 'lion-system';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-export async function pmPreCommit() {
+export async function pmPreCommit(options) {
     preCommit();
+    if (!options.fromRoot) {
+        return;
+    }
     // Add the changed files in all packages: https://stackoverflow.com/a/33620540
     const monorepoDir = getProjectDir(import.meta.url, { monorepoRoot: true });
     const packagesDir = path.join(monorepoDir, 'packages');

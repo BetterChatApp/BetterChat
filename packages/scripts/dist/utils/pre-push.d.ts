@@ -1,1 +1,2 @@
-export declare function pmPrePush(): Promise<void>;
+import type { PseudoMonorepoHookOptions } from '../types/options.js';
+export declare function pmPrePush(options: PseudoMonorepoHookOptions): Promise<void>;

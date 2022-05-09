@@ -1,2 +1,2 @@
 import { pmCommitMsg } from '../utils/commit-msg.js';
-await pmCommitMsg();
+await pmCommitMsg({ fromRoot: true });
