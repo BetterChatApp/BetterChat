@@ -1,1 +1,3 @@
-# extension
+# BetterChat Extension
+
+The BetterChat browser extension.
