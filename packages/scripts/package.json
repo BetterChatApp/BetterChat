@@ -1,0 +1,15 @@
+{
+	"name": "@betterchat/scripts",
+	"description": "Scripts for BetterChat.",
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"lint": "eslint --cache --fix .",
+		"prettier": "prettier --write .",
+		"typecheck": "tsc --noEmit"
+	},
+	"devDependencies": {
+		"execa": "^6.1.0",
+		"lion-system": "^1.3.25"
+	}
+}

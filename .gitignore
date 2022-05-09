@@ -1,6 +1,12 @@
 node_modules
 .DS_Store
-packages/*
-!packages/.gitkeep
-!packages/setup
 .pnpm-debug.log
+
+# https://github.com/BetterChatApp/BetterChatExtension
+packages/extension
+
+# https://github.com/BetterChatApp/BetterChatServer
+packages/server
+
+# https://github.com/BetterChatApp/BetterChatWebsite
+packages/website
