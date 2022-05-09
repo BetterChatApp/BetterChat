@@ -4,6 +4,8 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
+		"preinstall": "pnpm run build",
+		"build": "tsc",
 		"lint": "eslint --cache --fix .",
 		"prettier": "prettier --write .",
 		"typecheck": "tsc --noEmit"
