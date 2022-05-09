@@ -21,7 +21,11 @@ export async function pmCommitMsg(options: PseudoMonorepoHookOptions) {
 
 	const packageNames = fs.readdirSync(packagesDir);
 
-	const commitMessage = process.argv.at(-1)!;
+	const commitMessageFile = process.argv.at(-1)!;
+	const commitMessage = fs.readFileSync(
+		path.join(monorepoDir, commitMessageFile),
+		'utf8'
+	);
 
 	await Promise.allSettled(
 		packageNames.map(async (packageName) => {
@@ -30,12 +34,10 @@ export async function pmCommitMsg(options: PseudoMonorepoHookOptions) {
 				return;
 			}
 
-			console.log(packageDir)
-			await execa(
-				'git',
-				['commit', '-m', fs.readFileSync(commitMessage, 'utf8')],
-				{ cwd: packageDir, stdio: 'inherit' }
-			);
+			await execa('git', ['commit', '-m', commitMessage], {
+				cwd: packageDir,
+				stdio: 'inherit',
+			});
 		})
 	);
 }
