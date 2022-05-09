@@ -15,6 +15,6 @@ const packageNames = fs.readdirSync(packagesDir);
 await Promise.allSettled(
 	packageNames.map(async (packageName) => {
 		const packageDir = path.join(packagesDir, packageName);
-		await execa('git', ['push'], { cwd: packageDir });
+		await execa('git', ['push'], { cwd: packageDir, stdio: 'inherit' });
 	})
 );

@@ -22,7 +22,7 @@ await Promise.allSettled(
 		await execa(
 			'git',
 			['commit', '-m', fs.readFileSync(commitMessage, 'utf8')],
-			{ cwd: packageDir }
+			{ cwd: packageDir, stdio: 'inherit' }
 		);
 	})
 );
