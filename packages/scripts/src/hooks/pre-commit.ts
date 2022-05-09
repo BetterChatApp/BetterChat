@@ -1,3 +1,3 @@
-import { pmPreCommit } from '../utils/pre-commit.js';
+import { preCommit } from 'lion-system';
 
-await pmPreCommit({ fromRoot: true });
+preCommit();

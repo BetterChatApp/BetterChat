@@ -1,3 +1,3 @@
-import { pmCommitMsg } from '../utils/commit-msg.js';
+import { commitMsg } from 'lion-system';
 
-await pmCommitMsg({ fromRoot: true });
+commitMsg();

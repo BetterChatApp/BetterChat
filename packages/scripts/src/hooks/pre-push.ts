@@ -1,3 +1,3 @@
-import { pmPrePush } from '../utils/pre-push.js';
+import { prePush } from 'lion-system';
 
-await pmPrePush({ fromRoot: true });
+prePush();
