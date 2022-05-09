@@ -30,6 +30,7 @@ export async function pmCommitMsg(options: PseudoMonorepoHookOptions) {
 				return;
 			}
 
+			console.log(packageDir)
 			await execa(
 				'git',
 				['commit', '-m', fs.readFileSync(commitMessage, 'utf8')],

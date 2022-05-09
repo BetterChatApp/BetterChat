@@ -22,7 +22,6 @@ export async function pmPreCommit(options: PseudoMonorepoHookOptions) {
 	await Promise.allSettled(
 		packageNames.map(async (packageName) => {
 			const packageDir = path.join(packagesDir, packageName);
-
 			if (!fs.existsSync(path.join(packageDir, '.git'))) {
 				return;
 			}
