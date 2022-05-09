@@ -4,10 +4,10 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import process from 'node:process';
 export async function pmCommitMsg(options) {
-    commitMsg();
     if (!options.fromRoot) {
         return;
     }
+    commitMsg();
     // Also make the commit in all the sub-packages
     // This is a `commit-msg` hook because it's the only hook where we get access to the commit message
     const monorepoDir = getProjectDir(import.meta.url, { monorepoRoot: true });

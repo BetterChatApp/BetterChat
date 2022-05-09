@@ -3,10 +3,10 @@ import { getProjectDir, prePush } from 'lion-system';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 export async function pmPrePush(options) {
-    prePush();
     if (!options.fromRoot) {
         return;
     }
+    prePush();
     // Execute `git push` in all package directories
     const monorepoDir = getProjectDir(import.meta.url, { monorepoRoot: true });
     const packagesDir = path.join(monorepoDir, 'packages');
