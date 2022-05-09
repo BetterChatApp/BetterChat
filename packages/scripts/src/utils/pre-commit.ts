@@ -6,11 +6,11 @@ import * as path from 'node:path';
 import type { PseudoMonorepoHookOptions } from '../types/options.js';
 
 export async function pmPreCommit(options: PseudoMonorepoHookOptions) {
-	preCommit();
-
 	if (!options.fromRoot) {
 		return;
 	}
+
+	preCommit();
 
 	// Add the changed files in all packages: https://stackoverflow.com/a/33620540
 

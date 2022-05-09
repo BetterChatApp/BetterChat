@@ -7,11 +7,11 @@ import process from 'node:process';
 import type { PseudoMonorepoHookOptions } from '../types/options.js';
 
 export async function pmCommitMsg(options: PseudoMonorepoHookOptions) {
-	commitMsg();
-
 	if (!options.fromRoot) {
 		return;
 	}
+
+	commitMsg();
 
 	// Also make the commit in all the sub-packages
 	// This is a `commit-msg` hook because it's the only hook where we get access to the commit message

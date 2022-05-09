@@ -6,11 +6,11 @@ import * as path from 'node:path';
 import type { PseudoMonorepoHookOptions } from '../types/options.js';
 
 export async function pmPrePush(options: PseudoMonorepoHookOptions) {
-	prePush();
-
 	if (!options.fromRoot) {
 		return;
 	}
+
+	prePush();
 
 	// Execute `git push` in all package directories
 
