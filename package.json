@@ -1,6 +1,7 @@
 {
 	"name": "@betterchat/monorepo",
 	"scripts": {
+		"prepare": "lion-git-hooks",
 		"pnpm:devPreinstall": "node ./packages/setup/setup.js",
 		"dev:server": "pnpm --filter @betterchat/server dev"
 	},
