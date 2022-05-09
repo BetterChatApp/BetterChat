@@ -1,8 +1,8 @@
-import { defineConfig } from 'vitest/config';
 import vue from '@vitejs/plugin-vue';
 import { join } from 'desm';
 import jsImports from 'vite-plugin-js-imports';
-import windiCSS from 'vite-plugin-windicss';
+import WindiCSS from 'vite-plugin-windicss';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
 	resolve: {
@@ -11,5 +11,5 @@ export default defineConfig({
 			'~test': join(import.meta.url, 'test'),
 		},
 	},
-	plugins: [vue(), windiCSS(), jsImports()],
+	plugins: [vue({ reactivityTransform: true }), WindiCSS(), jsImports()],
 });

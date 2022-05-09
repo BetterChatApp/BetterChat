@@ -2,16 +2,21 @@ import fastify from 'fastify';
 import fastifySocketIO from 'fastify-socket.io';
 import process from 'node:process';
 
-const app = fastify();
-void app.register(fastifySocketIO);
+import { registerMessageHandlers } from '~/handlers/message.js';
 
-app.get('/', async (request, reply) => {
-	await reply.send('monke');
+const app = fastify();
+void app.register(fastifySocketIO, {
+	cors: {
+		origin: '*',
+	},
 });
 
 app.addHook('onReady', () => {
-	app.io.on('connection', (socket) => {
-		console.log(socket);
+	const { io } = app;
+	io.on('connection', (socket) => {
+		io.to(socket.id).emit('init-room');
+
+		registerMessageHandlers({ socket, io: app.io });
 	});
 });
 

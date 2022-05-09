@@ -1,3 +1,4 @@
+import daisyui from 'daisyui';
 import { defineConfig } from 'windicss/helpers';
 
 export default defineConfig({
@@ -7,4 +8,5 @@ export default defineConfig({
 		column: 'flex flex-col',
 		center: 'items-center justify-center',
 	},
+	plugins: [daisyui],
 });
